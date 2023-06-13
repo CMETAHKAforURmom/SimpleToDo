@@ -3,4 +3,5 @@
 
     <string name="sign">Sign in</string>
     <string name="your_email">Email Address</string>
+    <string name="your_pass">Password</string>
 </resources>

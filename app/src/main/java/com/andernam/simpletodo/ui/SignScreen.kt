@@ -14,6 +14,7 @@ import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextField
+import androidx.compose.material3.TextFieldDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.getValue
@@ -28,6 +29,7 @@ import androidx.compose.ui.text.input.TextFieldValue
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import com.andernam.simpletodo.R
+import com.andernam.simpletodo.ui.theme.Transparent
 import com.andernam.simpletodo.ui.theme.Typography
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -35,6 +37,10 @@ import com.andernam.simpletodo.ui.theme.Typography
 fun SignScreen(navController: NavController){
 
     var textEmail by remember {
+        mutableStateOf(TextFieldValue(""))
+    }
+
+    var textPass by remember {
         mutableStateOf(TextFieldValue(""))
     }
 
@@ -58,10 +64,25 @@ fun SignScreen(navController: NavController){
                     placeholder = { Text(text = stringResource(id = R.string.your_email), style = Typography.labelSmall)},
                     keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Email),
                     singleLine = true,
-                    modifier = Modifier.fillMaxWidth().padding(50.dp).height(50.dp),
+                    modifier = Modifier.fillMaxWidth().padding(horizontal = 50.dp).height(50.dp),
+                    colors = TextFieldDefaults.textFieldColors(
+                        unfocusedIndicatorColor = Transparent,
+                        focusedIndicatorColor = Transparent),
                     textStyle = Typography.labelSmall,
                     
                 )
+
+                TextField(value = textPass,
+                    onValueChange = {
+                        textPass = it
+                    },
+                    placeholder = { Text(text = stringResource(id = R.string.your_pass), style = Typography.labelSmall)},
+                    keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Password),
+                    singleLine = true,
+                    modifier = Modifier.fillMaxWidth().padding(horizontal = 50.dp, vertical = 10.dp).height(50.dp),
+                    textStyle = Typography.labelSmall,
+
+                    )
             }
     }
 }
