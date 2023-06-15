@@ -2,6 +2,7 @@
     <string name="app_name">Simple To Do</string>
 
     <string name="sign">Sign in</string>
+    <string name="login">Login</string>
     <string name="your_email">Email Address</string>
     <string name="your_pass">Password</string>
     <string name="client_id"></string>

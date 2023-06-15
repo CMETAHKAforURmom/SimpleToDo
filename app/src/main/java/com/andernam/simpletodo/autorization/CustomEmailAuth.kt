@@ -11,5 +11,10 @@ class CustomEmailAuth {
 //                Log.i("Login successful", it.isSuccessful.toString())
         })
     }
+    fun loginUser(email: String, pass: String){
+        CUSTOMauth.signInWithEmailAndPassword(email, pass).addOnCompleteListener(OnCompleteListener {
+            return@OnCompleteListener
+        })
+    }
 
 }

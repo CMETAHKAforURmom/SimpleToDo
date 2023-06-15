@@ -11,7 +11,7 @@ import com.andernam.simpletodo.ui.SignScreen
 fun NavController(){
     val navigationController = rememberNavController()
     navController = navigationController
-    NavHost(navController = navigationController, startDestination = CONST.SIGIN_SCREEN.route){
+    NavHost(navController = navigationController, startDestination = CONST.LOGIN_SCREEN.route){
         composable(CONST.LOGIN_SCREEN.route){
             LoginScreenUi(navigationController)
         }
