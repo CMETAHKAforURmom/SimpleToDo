@@ -6,6 +6,7 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.andernam.simpletodo.ui.LoginScreenUi
 import com.andernam.simpletodo.ui.SignScreen
+import com.andernam.simpletodo.ui.ToDoListsUserScreen
 
 @Composable
 fun NavController(){
@@ -18,6 +19,8 @@ fun NavController(){
         composable(CONST.SIGIN_SCREEN.route){
             SignScreen(navController)
         }
+        composable(CONST.TODO_LISTS.route){
+            ToDoListsUserScreen(navController)
+        }
     }
-
 }

@@ -156,15 +156,14 @@ fun LoginScreenUi(navController: NavController){
                 }
             )
 
-            Button(onClick = {
-//                                 CustomEmailAuth().makeNewUser(textEmail.text, textPass.text)
-//                Log.i("Correct enter!", CustomEmailAuth().loginUser(textEmail.text, textPass.text).toString())
-//                CUSTOMauth.signInWithEmailAndPassword(textEmail.text, textPass.text).addOnCompleteListener(
-//                    OnCompleteListener {
-//                    if(it.isSuccessful) navController.navigate(CONST.SIGIN_SCREEN.route)
-//                })
-
-                             },
+            Button(
+                onClick = {
+                    CustomEmailAuth().loginUser(textEmail.text, textPass.text)
+                        .addOnCompleteListener {
+                            if(it.isSuccessful)navController.navigate(CONST.TODO_LISTS.route)
+                            else Log.i("Login faild:", it.exception.toString())
+                        }
+                },
                 shape = RoundedCornerShape(25.dp),
                 enabled = !isPassError,
                 modifier = Modifier

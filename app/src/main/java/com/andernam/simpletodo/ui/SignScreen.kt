@@ -167,8 +167,10 @@ fun SignScreen(navController: NavController){
                     Log.i("Correct watcher",isAllCorrect(textEmail.text, textPass.text))
                                  when(isAllCorrect(textEmail.text, textPass.text)){
                                      EMAIL_AND_PASS_CORRECT -> {
-                                         navController.navigate(CONST.LOGIN_SCREEN.route)
-                                         CustomEmailAuth().makeNewUser(textEmail.text, textPass.text)
+//                                         navController.navigate(CONST.LOGIN_SCREEN.route)
+                                         CustomEmailAuth().makeNewUser(textEmail.text, textPass.text).addOnCompleteListener {
+                                             if(it.isSuccessful) navController.navigate(CONST.LOGIN_SCREEN.route)
+                                         }
                                      }
 
                                      EMAIL_ERROR_SYMBOL -> {isEmailError = true
