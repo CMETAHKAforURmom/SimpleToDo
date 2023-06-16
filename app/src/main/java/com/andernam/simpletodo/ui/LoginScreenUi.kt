@@ -80,16 +80,7 @@ fun LoginScreenUi(navController: NavController){
     val interactionSource = remember { MutableInteractionSource() }
     val passVisible by interactionSource.collectIsPressedAsState()
 
-    Box(modifier = Modifier
-        .fillMaxSize()
-        .background(
-            Brush.verticalGradient(
-                listOf(
-                    MaterialTheme.colorScheme.primary,
-                    MaterialTheme.colorScheme.secondary
-                )
-            )
-        )) {
+    Box (modifier = Modifier.fillMaxSize()) {
         Column(modifier = Modifier.align(Alignment.Center)) {
             Text(text = stringResource(id = R.string.login), modifier = Modifier.align(Alignment.CenterHorizontally), style = Typography.bodyLarge)
             Spacer(modifier = Modifier.height(75.dp))
