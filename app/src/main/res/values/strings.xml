@@ -3,6 +3,7 @@
 
     <string name="sign">Sign in</string>
     <string name="new_acc">I have\'nt account already</string>
+    <string name="counte_guest">Continue as guest</string>
     <string name="login">Login</string>
     <string name="your_email">Email Address</string>
     <string name="your_pass">Password</string>

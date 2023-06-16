@@ -6,6 +6,7 @@ import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.interaction.collectIsPressedAsState
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.RowScope
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -176,6 +177,19 @@ fun LoginScreenUi(navController: NavController){
             ) {
                 Text(text = stringResource(id = R.string.new_acc))
             }
+
+            Button(onClick = {navController.navigate(CONST.TODO_LISTS.route)}){
+                Text(text = stringResource(id = R.string.counte_guest))
+            }
         }
     }
 }
+
+@Composable
+fun ButtonOnStart(ClickContext: () -> Unit, contentInside: @Composable RowScope.() -> Unit) = Button(onClick = {ClickContext},
+    content = contentInside,
+    shape = RoundedCornerShape(25.dp),
+    modifier = Modifier
+        .fillMaxWidth()
+        .padding(horizontal = 50.dp, vertical = 10.dp)
+        .height(50.dp))

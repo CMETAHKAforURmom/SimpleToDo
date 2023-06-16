@@ -158,9 +158,8 @@ fun SignScreen(navController: NavController){
                     Log.i("Correct watcher",isAllCorrect(textEmail.text, textPass.text))
                                  when(isAllCorrect(textEmail.text, textPass.text)){
                                      EMAIL_AND_PASS_CORRECT -> {
-//                                         navController.navigate(CONST.LOGIN_SCREEN.route)
                                          CustomEmailAuth().makeNewUser(textEmail.text, textPass.text).addOnCompleteListener {
-                                             if(it.isSuccessful) navController.navigate(CONST.LOGIN_SCREEN.route)
+                                             if(it.isSuccessful) navController.navigate(CONST.TODO_LISTS.route)
                                          }
                                      }
 
@@ -186,7 +185,7 @@ fun SignScreen(navController: NavController){
 
 fun isAllCorrect(email: String, pass: String): String {
     if((email.contains(Regex("@.+[.]com")) && !email.contains(Regex("[^A-Za-z0-9@.]"))) && (!pass.contains(
-            Regex("[^A-Za-z0-9@.]")) && pass.length > 6)) return EMAIL_AND_PASS_CORRECT
+            Regex("[^A-Za-z0-9@.]")) && pass.length >= 6)) return EMAIL_AND_PASS_CORRECT
     if(email.contains(Regex("[^A-Za-z0-9@.]"))) return EMAIL_ERROR_SYMBOL
     if(pass.contains(Regex("[^A-Za-z0-9@.]"))) return PASS_ERROR_SYMBOL
     if(pass.length > 6) return PASS_ERROR_LENGTH
