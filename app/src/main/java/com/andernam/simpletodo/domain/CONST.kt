@@ -1,10 +1,7 @@
-package com.andernam.simpletodo
+package com.andernam.simpletodo.domain
 
-import android.content.Context
 import androidx.navigation.NavController
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.auth.FirebaseUser
-import com.google.firebase.ktx.Firebase
 
 sealed class CONST (val route: String){
 

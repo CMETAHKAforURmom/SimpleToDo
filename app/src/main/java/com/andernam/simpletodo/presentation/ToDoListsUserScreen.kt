@@ -1,4 +1,4 @@
-package com.andernam.simpletodo.ui
+package com.andernam.simpletodo.presentation
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column

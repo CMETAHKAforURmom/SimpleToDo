@@ -1,12 +1,14 @@
-package com.andernam.simpletodo
+package com.andernam.simpletodo.domain
 
 import androidx.compose.runtime.Composable
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import com.andernam.simpletodo.ui.LoginScreenUi
-import com.andernam.simpletodo.ui.SignScreen
-import com.andernam.simpletodo.ui.ToDoListsUserScreen
+import com.andernam.simpletodo.domain.CONST
+import com.andernam.simpletodo.domain.navController
+import com.andernam.simpletodo.presentation.LoginScreenUi
+import com.andernam.simpletodo.presentation.SignScreen
+import com.andernam.simpletodo.presentation.ToDoListsUserScreen
 
 @Composable
 fun NavController(){

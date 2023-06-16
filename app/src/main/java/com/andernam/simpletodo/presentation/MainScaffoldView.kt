@@ -1,4 +1,4 @@
-package com.andernam.simpletodo.ui
+package com.andernam.simpletodo.presentation
 
 import android.annotation.SuppressLint
 import androidx.compose.foundation.background
@@ -10,9 +10,7 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Brush
-import com.andernam.simpletodo.NavController
-import com.andernam.simpletodo.ui.theme.Pink40
-import com.andernam.simpletodo.ui.theme.Purple40
+import com.andernam.simpletodo.domain.NavController
 
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 @OptIn(ExperimentalMaterial3Api::class)

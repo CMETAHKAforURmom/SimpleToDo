@@ -1,7 +1,6 @@
-package com.andernam.simpletodo.ui
+package com.andernam.simpletodo.presentation
 
 import android.util.Log
-import androidx.compose.foundation.background
 import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.interaction.collectIsPressedAsState
 import androidx.compose.foundation.layout.Box
@@ -15,7 +14,6 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material3.Button
 import androidx.compose.material3.ExperimentalMaterial3Api
-import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextField
 import androidx.compose.material3.TextFieldDefaults
@@ -26,7 +24,6 @@ import androidx.compose.runtime.setValue
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.input.KeyboardType
@@ -41,13 +38,13 @@ import androidx.compose.ui.focus.onFocusChanged
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.text.input.VisualTransformation
-import com.andernam.simpletodo.CONST
-import com.andernam.simpletodo.EMAIL_AND_PASS_CORRECT
-import com.andernam.simpletodo.EMAIL_ERROR_SYMBOL
-import com.andernam.simpletodo.EMPTY_FIELD
-import com.andernam.simpletodo.PASS_ERROR_LENGTH
-import com.andernam.simpletodo.PASS_ERROR_SYMBOL
-import com.andernam.simpletodo.UNKNOWN_ERROR
+import com.andernam.simpletodo.domain.CONST
+import com.andernam.simpletodo.domain.EMAIL_AND_PASS_CORRECT
+import com.andernam.simpletodo.domain.EMAIL_ERROR_SYMBOL
+import com.andernam.simpletodo.domain.EMPTY_FIELD
+import com.andernam.simpletodo.domain.PASS_ERROR_LENGTH
+import com.andernam.simpletodo.domain.PASS_ERROR_SYMBOL
+import com.andernam.simpletodo.domain.UNKNOWN_ERROR
 import com.andernam.simpletodo.autorization.CustomEmailAuth
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -155,7 +152,7 @@ fun SignScreen(navController: NavController){
                     )
 
                 Button(onClick = {
-                    Log.i("Correct watcher",isAllCorrect(textEmail.text, textPass.text))
+                    Log.i("Correct watcher", isAllCorrect(textEmail.text, textPass.text))
                                  when(isAllCorrect(textEmail.text, textPass.text)){
                                      EMAIL_AND_PASS_CORRECT -> {
                                          CustomEmailAuth().makeNewUser(textEmail.text, textPass.text).addOnCompleteListener {
