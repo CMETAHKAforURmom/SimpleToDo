@@ -86,16 +86,7 @@ fun SignScreen(navController: NavController){
         isPassError = passwordValidate.length < passLimitMin
     }
 
-    Box(modifier = Modifier
-        .fillMaxSize()
-        .background(
-            Brush.verticalGradient(
-                listOf(
-                    MaterialTheme.colorScheme.primary,
-                    MaterialTheme.colorScheme.secondary
-                )
-            )
-        )) {
+    Box(modifier = Modifier.fillMaxSize()) {
             Column(modifier = Modifier.align(Alignment.Center)) {
                 Text(text = stringResource(id = R.string.sign), modifier = Modifier.align(Alignment.CenterHorizontally), style = Typography.bodyLarge)
                 Spacer(modifier = Modifier.height(75.dp))
