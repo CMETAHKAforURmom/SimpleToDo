@@ -18,12 +18,10 @@ import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
-import androidx.compose.runtime.Composable
-import androidx.compose.ui.tooling.preview.Preview
-import androidx.navigation.NavController
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextField
 import androidx.compose.material3.TextFieldDefaults
+import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -40,17 +38,15 @@ import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.text.input.TextFieldValue
 import androidx.compose.ui.text.input.VisualTransformation
 import androidx.compose.ui.unit.dp
-import com.andernam.simpletodo.EMAIL_AND_PASS_CORRECT
+import androidx.navigation.NavController
+import com.andernam.simpletodo.CONST
+import com.andernam.simpletodo.CUSTOMauth
 import com.andernam.simpletodo.EMAIL_ERROR_SYMBOL
 import com.andernam.simpletodo.EMPTY_FIELD
-import com.andernam.simpletodo.PASS_ERROR_LENGTH
-import com.andernam.simpletodo.PASS_ERROR_SYMBOL
 import com.andernam.simpletodo.R
-import com.andernam.simpletodo.UNKNOWN_ERROR
 import com.andernam.simpletodo.autorization.CustomEmailAuth
-import com.andernam.simpletodo.ui.theme.Pink40
-import com.andernam.simpletodo.ui.theme.Purple40
 import com.andernam.simpletodo.ui.theme.Typography
+import com.google.android.gms.tasks.OnCompleteListener
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -162,16 +158,13 @@ fun LoginScreenUi(navController: NavController){
 
             Button(onClick = {
 //                                 CustomEmailAuth().makeNewUser(textEmail.text, textPass.text)
-                CustomEmailAuth().loginUser(textEmail.text, textPass.text)
-//                when(isAllCorrect(textEmail.text, textPass.text)){
-//                    EMAIL_AND_PASS_CORRECT -> navController.navigate("")
-//                    EMAIL_ERROR_SYMBOL -> {isEmailError = true
-//                        Log.i(EMAIL_ERROR_SYMBOL, "is error")}
-//                    PASS_ERROR_SYMBOL -> {}
-//                    PASS_ERROR_LENGTH -> {}
-//                    UNKNOWN_ERROR -> {}
-//                }
-            },
+//                Log.i("Correct enter!", CustomEmailAuth().loginUser(textEmail.text, textPass.text).toString())
+//                CUSTOMauth.signInWithEmailAndPassword(textEmail.text, textPass.text).addOnCompleteListener(
+//                    OnCompleteListener {
+//                    if(it.isSuccessful) navController.navigate(CONST.SIGIN_SCREEN.route)
+//                })
+
+                             },
                 shape = RoundedCornerShape(25.dp),
                 enabled = !isPassError,
                 modifier = Modifier
@@ -180,6 +173,18 @@ fun LoginScreenUi(navController: NavController){
                     .height(50.dp),
             ) {
                 Text(text = stringResource(id = R.string.login))
+            }
+
+            Button(onClick = {
+                navController.navigate(CONST.SIGIN_SCREEN.route)
+            },
+                shape = RoundedCornerShape(25.dp),
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(horizontal = 50.dp, vertical = 10.dp)
+                    .height(50.dp),
+            ) {
+                Text(text = stringResource(id = R.string.new_acc))
             }
         }
     }

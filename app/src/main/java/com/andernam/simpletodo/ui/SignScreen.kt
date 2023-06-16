@@ -41,6 +41,7 @@ import androidx.compose.ui.focus.onFocusChanged
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.text.input.VisualTransformation
+import com.andernam.simpletodo.CONST
 import com.andernam.simpletodo.EMAIL_AND_PASS_CORRECT
 import com.andernam.simpletodo.EMAIL_ERROR_SYMBOL
 import com.andernam.simpletodo.EMPTY_FIELD
@@ -163,9 +164,13 @@ fun SignScreen(navController: NavController){
                     )
 
                 Button(onClick = {
-//                                 CustomEmailAuth().makeNewUser(textEmail.text, textPass.text)
+                    Log.i("Correct watcher",isAllCorrect(textEmail.text, textPass.text))
                                  when(isAllCorrect(textEmail.text, textPass.text)){
-                                     EMAIL_AND_PASS_CORRECT -> navController.navigate("")
+                                     EMAIL_AND_PASS_CORRECT -> {
+                                         navController.navigate(CONST.LOGIN_SCREEN.route)
+                                         CustomEmailAuth().makeNewUser(textEmail.text, textPass.text)
+                                     }
+
                                      EMAIL_ERROR_SYMBOL -> {isEmailError = true
                                      Log.i(EMAIL_ERROR_SYMBOL, "is error")}
                                      PASS_ERROR_SYMBOL -> {}
